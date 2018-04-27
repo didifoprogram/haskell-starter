@@ -9,4 +9,8 @@ myFunc :: (x -> y)
 myFunc xToY yToZ _ (a, x) =
   (a, (yToZ (xToY x)))
 
-  
+
+i :: a -> a
+c' :: a -> b -> b
+
+c' = 
