@@ -1,7 +1,7 @@
 module DaysOfWeek where
 
 data DayOfWeek =
-  Mon | Tue | Wed | Thu | Fri | Sat | Sun deriving Show
+  Mon | Tue | Wed | Thu | Fri | Sat | Sun deriving (Ord, Show)
 
 -- day of week and numerical day of month
 data Date =
