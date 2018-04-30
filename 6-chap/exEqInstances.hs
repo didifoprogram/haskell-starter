@@ -10,7 +10,7 @@ data TwoIntegers = Two Integer Integer
 instance Eq TwoIntegers where
   (==) (Two a a') (Two b b') =
     a == b && a' == b'
-n
+
 -- 3
 data StringOrInt = TisAnInt Int | TisAnString String
 instance Eq StringOrInt where
