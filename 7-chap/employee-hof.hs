@@ -18,6 +18,8 @@ employeeRank :: ( Employee
 codersRuleCEODrool :: Employee
                    -> Employee
                    -> Ordering
+
+-- pattern matching on data constructor, Coder
 codersRuleCEODrool Coder Coder = EQ
 codersRuleCEODrool Coder _ = GT
 codersRuleCEODrool _ Coder = LT
