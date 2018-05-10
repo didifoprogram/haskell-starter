@@ -6,3 +6,8 @@ avgGrade x
   | y >= 0.59 = 'D'
   | y < 0.59 = 'F'
   where y = x / 100
+
+
+pal :: Eq a => a -> Bool
+
+numbers :: (Ord a, Num a) => a -> a
