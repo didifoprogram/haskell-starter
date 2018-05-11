@@ -27,3 +27,5 @@ foldBool' x y b =
 g :: (a -> b) -> (a,c) -> (b,c)
 g f (a,c) = (b, c)
   where b = f a
+
+  
