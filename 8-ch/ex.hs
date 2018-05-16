@@ -9,7 +9,7 @@
 
 -- 4)
 -- b)
-
+n
 -- Reviewing currying
 cattyConny :: String -> String -> String
 cattyConny x y = x ++ " mrow " ++ y
@@ -83,4 +83,47 @@ multAll 3 5 = 12 + 3
 multAll 3 4 = 9 + 3
 multAll 3 3 = 6 + 3
 multAll 3 2 = 3 + 3
+-}
+
+
+-- McCarthy 91 function
+mc91 :: Integer -> Integer
+mc91 x
+  | x > 100 = x - 10
+  | otherwise = mc91 . mc91 $ (x + 11)
+{-
+mc91 85
+mc91 (mc91 96)
+mc91 (mc91 (mc91 107))
+mc91 (mc91 97)
+mc91 (mc91 (mc91 108))
+mc91 (mc91 98)
+mc91 (mc91 (mc91 109))
+mc91 (mc91 99)
+mc91 (mc91 (mc91 110))
+mc91 (mc91 100)
+mc91 (mc91 (mc91 111))
+mc91 (mc91 101)
+mc91 (91) -- remove one recursive call
+mc91 (mc91 (mc91 102))
+mc91 (mc91 92)
+mc91 (mc91 (mc91 103))
+mc91 (mc91 93)
+mc91 (mc91 (mc91 104))
+mc91 (mc91 94)
+mc91 (mc91 (mc91 105))
+mc91 (mc91 95)
+mc91 (mc91 (mc91 106))
+mc91 (mc91 96)
+mc91 (mc91 (mc91 107))
+mc91 (mc91 97)
+mc91 (mc91 (mc91 108))
+mc91 (mc91 98)
+mc91 (mc91 (mc91 109))
+mc91 (mc91 99)
+mc91 (mc91 (mc91 110))
+mc91 (mc91 100)
+mc91 (mc91 (mc91 111))
+mc91 (mc91 101)
+mc91 (91) -- last recursive call
 -}

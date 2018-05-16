@@ -1,12 +1,19 @@
 module DividedBy where
 
-dividedBy :: Integral a => a -> a -> (a,a)
-dividedBy num denom = go num denom 0
-  where go n d count -- The num,denom, and 0 are bound to n,d, and count.
-          | d == 0 = error "divided by zero"
-          | n < d = (count, n)
-          | otherwise =
-              go (n - d) d (count + 1)
+data DividedResult =
+  Result Integer
+  | DividedByZero deriving Show
+
+dividedBy :: Integral a => a -> a -> DividedResult
+dividedBy num denom
+  | denom == 0 = DividedByZero
+  | signum num == signum denom = Result r
+  | otherwise = Result (-r)
+  where
+    r = go (abs num) (abs denom) 0
+    go n d count
+      | n < d = count
+      | otherwise = go (n - d) d (count + 1)
 
 {-
 10 divided by 2 ==
@@ -16,4 +23,3 @@ dividedBy num denom = go num denom 0
      - 2, 2 (subtracted 4 time)
      - 2, 0 (subtracted 5 time)
 -}
-

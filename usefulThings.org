@@ -1,0 +1,30 @@
+* Intrinsic Functions
+  #+BEGIN_SRC haskell
+  words :: String -> [String]
+  unwords :: [String] -> String
+  fst :: (a, b) -> a
+  snd :: (a, b) -> b
+  (!!) :: [a] -> Int -> a
+  otherwise :: Bool -- it makes guards more readable, its always True.
+  map :: (a -> b) -> [a] -> [b]
+  signum :: Num a => a -> a
+  (.) :: (b -> c) -> (a -> b) -> a -> c -- composition
+  (:) :: a -> [a] -> [a]
+  (++) :: [a] -> [a] -> [a]
+  concat :: Foldable t => t [a] -> [a] -- example concat [[1, 2, 3], [4, 5, 6]]
+  divMod :: Integral a => a -> a -> (a, a)
+  sum :: (Num a, Foldable t) => t a -> a
+  #+END_SRC
+
+* Other
+  - case of
+  #+BEGIN_SRC haskell
+   funcZ x =
+     case x + 1 == 1 of
+       True -> "AWESOME"
+       False -> "wut"
+  #+END_SRC
+- Maybe
+  #+BEGIN_SRC haskell
+  data Maybe a = Nothing | Just a
+  #+END_SRC
