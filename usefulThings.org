@@ -39,7 +39,9 @@
   zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
   isUpper :: Char -> Bool
   toUpper : Char -> Char
-
+  and :: Foldable t => t Bool -> Bool
+  any :: Foldable t => (a -> Bool) -> t a -> Bool
+  all :: Foldable t => (a -> Bool) -> t a -> Bool
 
   #+END_SRC
 
@@ -55,3 +57,21 @@
   #+BEGIN_SRC haskell
   data Maybe a = Nothing | Just a
   #+END_SRC
+
+- let in
+  #+BEGIN_SRC haskell
+  myMinimumBy :: (a -> a -> Ordering) -> [a] -> a
+  myMinimumBy _ (x:[]) = x
+  myMinimumBy f (x:xs) =
+  let
+    y = myMinimumBy f xs
+  in
+    case f x y of
+      LT -> x
+      _  -> y
+
+  #+END_SRC
+
+- if then else
+
+- where
