@@ -28,6 +28,7 @@
   takeWhile :: (a -> Bool) -> [a] -> [a]
   dropWhile :: (a -> Bool) -> [a] -> [a]
   head :: [a] -> [a]
+  last :: [a] -> a
   tail :: [a] -> [a]
   elem :: Eq a => a -> [a] -> Bool
   fmap :: Functor f => (a -> b) -> f a -> f b
@@ -42,6 +43,16 @@
   and :: Foldable t => t Bool -> Bool
   any :: Foldable t => (a -> Bool) -> t a -> Bool
   all :: Foldable t => (a -> Bool) -> t a -> Bool
+  foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
+  repeat :: a -> [a]
+  scanr :: (a -> b -> c) -> b -> [a] -> [b]
+  scanl :: (b -> a -> b) -> b -> [a] -> [b]
+  foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
+  foldl :: Foldable t => (b -> a -> b) -> b -> t a -> b
+  flip :: (a -> b -> c) -> b -> a -> c
+
+
+
 
   #+END_SRC
 
