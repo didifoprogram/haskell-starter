@@ -89,3 +89,8 @@
 * Pragma
   {-# LANGUAGE GeneralizedNewtypeDeriving,
   FlexibleInstances #-}
+* GHCI
+  :t
+  :i
+  :k
+  :sprint
