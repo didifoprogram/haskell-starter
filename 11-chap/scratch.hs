@@ -281,3 +281,35 @@ data Silly a b c d =
 -- identical to (a,b,c,d)
 -- :k (,,,)
 -- (,,,) :: * -> * -> * -> * -> *
+
+-- :k (Int, String, Bool, String)
+-- (Int, String, Bool, String) :: *
+
+---------------------------
+
+data List a = Nil | Cons a (List a) deriving Show
+oneItem = (Cons "item" Nil)
+twoItems = (Cons "item2" oneItem)
+
+------------------------
+data BinaryTree a = Leaf | Node (BinaryTree a) a (BinaryTree a) deriving (Eq, Ord, Show)
+insert' :: Ord a
+        => a
+        -> BinaryTree a
+        -> BinaryTree a
+
+insert' b Leaf = Node Leaf b Leaf
+insert' b (Node left a right)
+  | b == a = Node left a right
+  | b < a = Node (insert' b left) a right
+  | b > a = Node left a (insert' b right)
+
+------------------------
+-- As-pattern
+f :: Show a => (a, b) -> IO (a, b)
+f t@(a, _) = do
+  print a
+  return t
+
+doubleUp :: [a] -> [a]
+doubleUp xs@(x:_) = x : xs

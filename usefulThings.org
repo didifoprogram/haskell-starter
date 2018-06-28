@@ -52,7 +52,7 @@
   flip :: (a -> b -> c) -> b -> a -> c
   minBound :: Bounded a => a
   maxBound :: Bounded a => a
-
+  partition :: (a -> Bool) -> [a] -> ([a], [a])
 
   #+END_SRC
 
