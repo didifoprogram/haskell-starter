@@ -43,7 +43,6 @@
   and :: Foldable t => t Bool -> Bool
   any :: Foldable t => (a -> Bool) -> t a -> Bool
   all :: Foldable t => (a -> Bool) -> t a -> Bool
-  foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
   repeat :: a -> [a]
   scanr :: (a -> b -> c) -> b -> [a] -> [b]
   scanl :: (b -> a -> b) -> b -> [a] -> [b]
