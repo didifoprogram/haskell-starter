@@ -1,3 +1,5 @@
+import Data.List
+
 type Name = String
 type Age = Integer
 type ValidatePerson a = Either [PersonInvalid] a
@@ -186,4 +188,54 @@ either' _ f (Right x) = f x
 eitherMaybe'' :: (b -> c) -> Either a b -> Maybe c
 -- ((b -> c) -> (Either a b -> Maybe c))
 eitherMaybe'' _ (Left _) = Nothing
-eitherMaybe'' f (Right x) = Just (either' f f (Right x))
+eitherMaybe'' f (Right x) = Just (either' f f (Right x)) -- fail D:
+
+---
+
+mehSum :: Num a => [a] -> a
+mehSum xs = go 0 xs
+  where
+    go :: Num a => a -> [a] -> a
+    go n [] = n
+    go n (x:xs) = go (n+x) xs
+
+niceSum :: Num a => [a] -> a
+niceSum = foldl' (+) 0
+
+---
+
+mehProduct :: Num a => [a] -> a
+mehProduct xs = go 1 xs
+  where
+    go :: Num a => a -> [a] -> a
+    go n [] = n
+    go n (x:xs) = go (n*x) xs
+
+niceProduct :: Num a => [a] -> a
+niceProduct = foldl' (*) 1
+
+---
+
+mehConcat :: [[a]] -> [a]
+mehConcat xs = go [] xs
+  where
+    go :: [a] -> [[a]] -> [a]
+    go xs' [] = xs'
+    go xs' (x:xs) = go (xs' ++ x) xs
+
+niceConcat :: [[a]] -> [a]
+niceConcat = foldr (++) []
+
+---
+
+myIterate :: (a -> a) -> a -> [a]
+myIterate f x = x : (myIterate f (f x))
+
+---
+
+-- take 10 $ myUnfoldr (\b -> Just (b, b+2)) 0
+myUnfoldr :: (b -> Maybe (a, b)) -> b -> [a]
+myUnfoldr f x =
+  case f x of
+    Nothing -> []
+    Just (a, b) -> a : myUnfoldr f b

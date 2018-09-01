@@ -52,7 +52,11 @@
   minBound :: Bounded a => a
   maxBound :: Bounded a => a
   partition :: (a -> Bool) -> [a] -> ([a], [a])
-
+  iterate :: (a -> a) -> a -> [a]
+  unfoldr :: (b -> Maybe (a, b)) -> b -> [a]
+  readFile :: FilePath -> IO String
+  lines :: String -> [String]
+  filter :: (a -> Bool) -> [a] -> [a]
   #+END_SRC
 
 * Other
